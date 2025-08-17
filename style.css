@@ -1,0 +1,65 @@
+html, body {
+  margin: 0;
+  padding: 0;
+    overflow: hidden; /* removes scrollbars */
+    background-image: linear-gradient(#140834,#140834,#270E65);
+}
+
+#clockSunset {
+  position: relative;  /* parent for absolute positioning */
+  width: 100%;
+  height: 100vh;       /* full viewport height */
+}
+
+#clockSunset::before {
+  content: "";
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  width: 100%;
+  height: 900px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    ellipse closest-side,
+    rgba(187, 38, 202, 0.3) 0%,
+    rgba(187, 38, 202, 0.09) 45%,   /* BB26CA at 50% */
+    rgba(187, 38, 202, 0) 100%     /* BB26CA at 0% */
+  );
+  filter: blur(100px);
+  z-index: 0; /* stays behind canvas */
+}
+
+#clockSunset #vaporwaveSunset {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;          /* canvas behind clock */
+}
+
+#clockSunset #weather {
+  position: absolute;
+  top: 35%;             /* vertically center */
+  left: 50%;            /* horizontally center */
+  transform: translate(-50%, -50%);
+  z-index: 2;           /* above canvas */
+  color: white;
+  font-size: 1rem;
+  font-family: 'Clash Display', sans-serif;
+  text-align: center;
+  letter-spacing: 0.2rem;
+}
+
+#clockSunset #clock {
+  position: absolute;
+  top: 25%;             /* vertically center */
+  left: 50%;            /* horizontally center */
+  transform: translate(-50%, -50%);
+  z-index: 2;           /* above canvas */
+  color: white;
+  font-size: 6rem;
+  font-family: 'Clash Display', sans-serif;
+  text-align: center;
+  letter-spacing: 0.2rem;
+}
